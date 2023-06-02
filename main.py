@@ -5,6 +5,7 @@ from src.common.exception.snap.too_much_face_exception import TooMuchFaceExcepti
 from src.common.exception.snap_exception_handler import face_not_found_exception_handler, too_much_face_exception_handler
 from src.common.dependency import has_access
 from src.routers import users,chat
+from src.routers.poe import poechat
 from src.routers.images import images
 from src.routers.common.health import health_check
 
@@ -18,6 +19,10 @@ app.include_router(
 )
 app.include_router(
     chat.router,
+    dependencies=PROTECTED
+)
+app.include_router(
+    poechat.router,
     dependencies=PROTECTED
 )
 app.include_router(
