@@ -15,10 +15,10 @@ pip3 install -r requirements.txt
 /usr/local/bin/python3.10 -m uvicorn main:app --reload --port 9002
 ```
 
-部署：
+部署到远程服务器：
 
 ```shell
-rsync -avzPh /Users/xiaoqiangjiang/source/reddwarf/backend/chat-server vps:/opt/apps/chat/
+rsync -avzPh /Users/xiaoqiangjiang/source/reddwarf/backend/ai-hub vps:/opt/apps/chat/
 ```
 
 
