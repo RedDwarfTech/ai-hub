@@ -6,7 +6,7 @@ set -e
 
 set -x
 
-ps auxww | grep "--port 8001" | grep -v "grep"  | awk '{print $2}' | xargs -r kill -9
+ps auxww | grep "uvicorn main:app" | grep -v "grep"  | awk '{print $2}' | xargs -r kill -9
 
 pip3 install -r requirements.txt
 
