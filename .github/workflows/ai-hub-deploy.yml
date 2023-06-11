@@ -17,7 +17,7 @@ jobs:
         host: ${{ secrets.VPS_HOST }}
         username: ${{ secrets.VPS_USER }}
         password: ${{ secrets.VPS_PASSWORD }}
-        source: ai-hub/*
+        source: *
         target: /opt/apps/chat/ai-hub
 
     - name: Restart server
