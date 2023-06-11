@@ -17,8 +17,8 @@ jobs:
         host: ${{ secrets.VPS_HOST }}
         username: ${{ secrets.VPS_USER }}
         password: ${{ secrets.VPS_PASSWORD }}
-        source: "ai-hub"
-        target: /home/ubuntu/apps/cv-render/
+        source: "ai-hub/*"
+        target: /opt/apps/chat/ai-hub
 
     - name: Restart server
       uses: appleboy/ssh-action@master
@@ -27,6 +27,6 @@ jobs:
         username: ${{ secrets.VPS_USER }}
         password: ${{ secrets.VPS_PASSWORD }}
         script: |
-          cd /opt/apps/ai-hub
-          nohup /opt/apps/ai-hub/src/scripts/restart-app.sh &> server.log &!
+          cd /opt/apps/chat/ai-hub
+          nohup /opt/apps/chat/ai-hub/src/scripts/restart-app.sh &> server.log &!
           sleep 20
