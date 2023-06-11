@@ -28,5 +28,5 @@ jobs:
         password: ${{ secrets.VPS_PASSWORD }}
         script: |
           cd /opt/apps/chat/ai-hub
-          nohup /opt/apps/chat/ai-hub/src/scripts/restart-app.sh &> server.log &!
+          nohup /opt/apps/chat/ai-hub/scripts/start-app-vps.sh &> ai-hub.log &!
           sleep 20
