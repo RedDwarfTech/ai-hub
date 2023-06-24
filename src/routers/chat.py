@@ -64,6 +64,7 @@ def chat_completions(q: str, authorization: str = Header(None), request: Request
     if auth_token is None:
         return "Authorization token is missing"
     openai.api_key = auth_token
+    openai.endpoint = "https://reddwarfcv.openai.azure.com/"
     async def gpt_event_generator():
         completion = openai.ChatCompletion.create(model="gpt-3.5-turbo",
                                               messages=[{"role": "user", "content": q,}],
