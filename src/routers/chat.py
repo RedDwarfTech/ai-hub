@@ -42,7 +42,7 @@ def stream_chat(q: str, authorization: str = Header(None)):
     auth_mode, auth_token = authorization.split(' ')
     if auth_token is None:
         return "Authorization token is missing"
-    openai.api_key = auth_token
+    set_openai_endpoint(auth_token)
     async def event_generator():
         completions = openai.Completion.create(
             engine="text-davinci-003",
