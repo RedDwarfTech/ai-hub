@@ -1,3 +1,4 @@
+from config.openai.openai_config import set_openai_endpoint
 from fastapi import APIRouter, Header, Request
 import asyncio
 import json
@@ -63,8 +64,7 @@ def chat_completions(q: str, authorization: str = Header(None), request: Request
     auth_mode, auth_token = authorization.split(' ')
     if auth_token is None:
         return "Authorization token is missing"
-    openai.api_key = auth_token
-    openai.endpoint = "https://reddwarfcv.openai.azure.com/"
+    set_openai_endpoint(auth_token)
     async def gpt_event_generator():
         completion = openai.ChatCompletion.create(model="gpt-3.5-turbo",
                                               messages=[{"role": "user", "content": q,}],
